@@ -1,0 +1,2 @@
+# Debian package building vars
+export DEBEMAIL="Jason Buster <jason.buster@readytalk.com>"
