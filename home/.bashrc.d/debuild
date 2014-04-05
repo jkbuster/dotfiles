@@ -1,2 +1,6 @@
 # Debian package building vars
-export DEBEMAIL="Jason Buster <jkbuster@mac.com>"
+if grep -q readytalk "/etc/resolv.conf"; then
+  export DEBEMAIL="Jason Buster <jason.buster@readytalk.com>"
+else
+  export DEBEMAIL="Jason Buster <jkbuster@mac.com>"
+fi
