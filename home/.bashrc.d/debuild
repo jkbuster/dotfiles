@@ -1,2 +1,2 @@
 # Debian package building vars
-export DEBEMAIL="Jason Buster <jason.buster@readytalk.com>"
+export DEBEMAIL="Jason Buster <jkbuster@mac.com>"

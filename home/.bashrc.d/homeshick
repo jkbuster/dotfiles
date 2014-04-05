@@ -1,2 +1,5 @@
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-#source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+if [ -d "$HOME/.homesick/repos/homeshick" ]; then
+  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+  homeshick --quiet refresh
+fi
