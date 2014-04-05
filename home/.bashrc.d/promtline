@@ -214,7 +214,8 @@ function __promptline_jobs {
 }
 function __promptline {
   local last_exit_code="$?"
-c=m
+
+  local esc=$'[' end_esc=m
   if [[ -n ${ZSH_VERSION-} ]]; then
     local noprint='%{' end_noprint='%}'
   else
