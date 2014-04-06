@@ -1,0 +1,4 @@
+# Minecraft aliases
+if [ -x /usr/local/bin/msm ]; then
+  alias msm='sudo msm'
+fi

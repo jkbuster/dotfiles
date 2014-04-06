@@ -1,0 +1,4 @@
+# Xen Aliases
+if [ -x '/usr/sbin/xm' ];then
+  alias xm='sudo /usr/sbin/xm
+fi
