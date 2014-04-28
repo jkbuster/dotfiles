@@ -1,2 +1,3 @@
 alias tl='tail -F $(ls -1tr | tail -n 1)'
 alias tf='tail -F'
+alias tfd='tail -F /var/log/daemon.log'
