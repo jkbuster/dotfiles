@@ -1,10 +1,9 @@
 # Work Nagios Aliases
 if [ -x "/etc/init.d/nagios3" ]; then
-  alias ncopy='sudo chown -R $USER /etc/nagios3/conf.git.d; rsync -avz --delete 192.168.49.135:git/nagios-configs/$(hostname | cut -c 1-3)/ /etc/nagios3/conf.git.d/; sudo chown -R nagios:nagios /etc/nagios3/conf.git.d;read;sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.git.cfg'
+  alias nupdate='sudo -u nagios /etc/nagios3/conf.git.d/update.sh'
   alias ngcheck='sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.git.cfg'
   alias nagdiff='diff -r /etc/nagios3/conf.d /etc/nagios3/conf.git.d'
-  alias nprep='sudo rsync -av --delete /etc/nagios3/conf.git.d/ /etc/nagios3/conf.d/; sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg'
   alias ncheck='sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg'
-  alias nreload='sudo /etc/init.d/nagios3 reload'
-  alias nrestart='sudo /etc/init.d/nagios3 restart'
+  alias nreload='sudo /usr/sbin/service nagios3 reload'
+  alias nrestart='sudo /usr/sbin/service nagios3 restart'
 fi
