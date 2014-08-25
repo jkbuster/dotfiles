@@ -2,7 +2,7 @@
 if [ -x "/etc/init.d/nagios3" ]; then
   alias nupdate='sudo -u nagios /etc/nagios3/conf.git.d/update.sh'
   alias ngcheck='sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.git.cfg'
-  alias nagdiff='diff -r /etc/nagios3/conf.d /etc/nagios3/conf.git.d'
+  alias nagdiff='diff -r /etc/nagios3/conf.d /etc/nagios3/conf.git.d/$(hostname | cut -c 1-3)'
   alias ncheck='sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg'
   alias nreload='sudo /usr/sbin/service nagios3 reload'
   alias nrestart='sudo /usr/sbin/service nagios3 restart'
