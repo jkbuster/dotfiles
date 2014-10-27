@@ -3,4 +3,5 @@ if [ -x '/usr/bin/sudo' ];then
   alias sbash='sudo -E bash'
   alias lvs='sudo lvs'
   alias vgs='sudo vgs'
+  export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 fi
