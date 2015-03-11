@@ -85,7 +85,7 @@ if [[ -z "${user}" ]]; then
 fi
 
 if [[ -z "${ip}" ]]; then
-	ip=$(/usr/bin/curl --silent http://curlmyip.com)
+	ip=$(/usr/bin/curl --silent http://ifconfig.me)
 	echo "Your IP: $ip"
 fi
 
