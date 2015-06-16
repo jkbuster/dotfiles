@@ -1,5 +1,9 @@
 if [ -d "$HOME/.homesick/repos/homeshick" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-  homeshick --quiet refresh
+  if [ -x "/usr/bin/git" ] && [ $(ssh-add -l | wc -l) -ge 1 ]; then
+    homeshick -q pull
+  else
+    homeshick -q -f -b refresh
+  fi
 fi
