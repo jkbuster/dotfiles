@@ -6,7 +6,7 @@ set -e
 # you can define username here
 # if this line is commented, you will be prompted for user
 user="$(whoami)"
-ip=
+ip=$BATHIP
 comment=
 service='ssh'
 host=''
@@ -85,6 +85,7 @@ if [[ -z "${user}" ]]; then
 fi
 
 if [[ -z "${ip}" ]]; then
+	echo "looking up your ip"
 	ip=$(/usr/bin/curl --silent http://ifconfig.me)
 	echo "Your IP: $ip"
 fi
