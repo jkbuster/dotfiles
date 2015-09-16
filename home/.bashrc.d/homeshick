@@ -11,7 +11,6 @@ if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
     echo "Unable to verify dotfiles pull"
     DOTFILESLAG = 0
   fi
-  echo "Dotfiles were updated $DOTFILESLAG seconds ago"
 
   # Update dotfiles if necessary
   if [ $(ssh-add -l | wc -l) -ge 1 ] && [ $DOTFILESLAG -gt 86400 ]; then
