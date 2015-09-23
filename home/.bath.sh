@@ -85,9 +85,13 @@ if [[ -z "${user}" ]]; then
 fi
 
 if [[ -z "${ip}" ]]; then
-	echo "looking up your ip"
-	ip=$(/usr/bin/curl --silent http://ifconfig.me)
-	echo "Your IP: $ip"
+  if [[ -r $HOME/.bath.ip ]]; then
+    ip=$(cat .bath.ip)
+    echo "Using IP from file"
+  else
+    echo "looking up your ip"
+    ip=$(/usr/bin/curl --silent http://curlmyip.com)
+  fi
 fi
 
 content="--data-urlencode output=text"

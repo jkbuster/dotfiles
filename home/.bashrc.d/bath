@@ -1,8 +1,3 @@
-# Load BATH IP if it exists
-if [ -r "$HOME/.bath.ip" ]; then
-  export BATHIP=$(cat $HOME/.bath.ip)
-fi
-
 # BATH Aliases
 if [ -x "$HOME/.bath.sh" ]; then
   alias wyn='~/.bath.sh -d 1900.readytalk.com -c " "; ssh 1900.readytalk.com'
