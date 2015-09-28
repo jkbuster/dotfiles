@@ -13,7 +13,7 @@ if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
   fi
 
   # Update dotfiles if necessary
-  if [ $(ssh-add -l | wc -l) -ge 1 ] && [ $DOTFILESLAG -gt 86400 ]; then
+  if [ $(ssh-add -l | wc -l) -ge 1 ] && [ $DOTFILESLAG -gt 604800 ]; then
     echo "Updating dotfiles..."
     homeshick -q pull
   else
