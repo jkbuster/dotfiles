@@ -2,6 +2,8 @@ if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
+  export PATH=$PATH:~/.bin
+
   # Determine time since last dotfiles pull
   if [ $(uname) == "Linux" ] && [ -f $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD ]; then
     DOTFILESLAG=$(expr $(date +%s) - $(date +%s -r $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD))
@@ -15,7 +17,8 @@ if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
   # Update dotfiles if necessary
   if [ $(ssh-add -l | wc -l) -ge 1 ] && [ $DOTFILESLAG -gt 604800 ]; then
     echo "Updating dotfiles..."
-    homeshick -q pull
+    homeshick -q -b pull
+    mr update
   else
     homeshick -q -f -b refresh
   fi
