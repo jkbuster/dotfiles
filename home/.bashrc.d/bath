@@ -1,5 +1,5 @@
 # BATH Aliases
-if [ -x "$HOME/.bath.sh" ]; then
+if [ -x "$HOME/.bin/bath.sh" ]; then
   alias wyn='~/.bath.sh -d 1900.readytalk.com -c " "; ssh 1900.readytalk.com'
   alias fort='~/.bath.sh -d forinf2.ecovate.com -c " "; ssh forinf2.ecovate.com'
   alias lax='~/.bath.sh -d laxinf2.ecovate.com -c " "; ssh laxinf2.ecovate.com'
