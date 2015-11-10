@@ -90,7 +90,7 @@ if [[ -z "${ip}" ]]; then
     echo "Using IP from file"
   else
     echo "looking up your ip"
-    ip=$(/usr/bin/curl --silent http://curlmyip.com)
+    ip=$(/usr/bin/dig +short myip.opendns.com @resolver1.opendns.com)
   fi
 fi
 
