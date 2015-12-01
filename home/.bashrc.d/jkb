@@ -1,8 +1,8 @@
 # jkbuster knock Aliases
 if [ -f $HOME/.knock.seq ]; then
-  if [ $(uname) == "Linux" ] && [ -x $HOME/.bin/knock.linux ]; then
+  if [[ $(uname) == "Linux" && -x $HOME/.bin/knock.linux ]]; then
     alias jkb='for i in $(cat $HOME/.knock.seq);do $HOME/.bin/knock.linux jkbuster.com $i;done; ssh jkbuster.com'
-  elif [ $(uname) == "Darwin" ] && [ -x $HOME/.bin/knock.osx ]; then
+  elif [[ $(uname) == "Darwin" && -x $HOME/.bin/knock.osx ]]; then
     alias jkb='for i in $(cat $HOME/.knock.seq);do $HOME/.bin/knock.osx jkbuster.com $i;done; ssh jkbuster.com'
   fi
 fi

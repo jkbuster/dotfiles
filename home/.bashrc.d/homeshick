@@ -1,4 +1,4 @@
-if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
+if [[ -d "$HOME/.homesick/repos/homeshick" && -x "/usr/bin/git" ]]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
@@ -7,15 +7,17 @@ if [ -d "$HOME/.homesick/repos/homeshick" ] && [ -x "/usr/bin/git" ]; then
   # Determine time since last dotfiles pull
   if [[ $(uname) == "Linux" && -f $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD ]]; then
     DOTFILESLAG=$(expr $(date +%s) - $(date +%s -r $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD))
-  elif [ $(uname) == "Darwin" ] && [ -f $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD ]; then
+    echo linux
+  elif [[ $(uname) == "Darwin" && -f $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD ]]; then
     DOTFILESLAG=$(echo $(( $(date +%s) - $(stat -f%c $HOME/.homesick/repos/dotfiles/.git/FETCH_HEAD) )))
+    echo Darwin
   else
     echo "Unable to verify dotfiles pull"
     DOTFILESLAG = 0
   fi
 
   # Update dotfiles if necessary
-  if [[ ( $(ssh-add -l | wc -l) -ge 1 ) && ( $DOTFILESLAG -gt 604800 ) ]]; then
+  if [[ $(ssh-add -l | wc -l) -ge 1 && $DOTFILESLAG -gt 604800 ]]; then
     echo "Updating dotfiles..."
     homeshick -q -b pull
     homeshick -q -b link
