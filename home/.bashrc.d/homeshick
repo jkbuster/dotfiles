@@ -19,5 +19,8 @@ if [[ -d "$HOME/.homesick/repos/homeshick" && -x "/usr/bin/git" ]]; then
     echo "Updating dotfiles..."
     mr update
     homeshick -q -b link
+
+    # Clean up any broken links:
+    find "${HOME}" -type l -exec test ! -e {} \; -delete
   fi
 fi
