@@ -8,3 +8,6 @@ push = :
 [.homesick/repos/liquidprompt]
 checkout = git clone 'git@github.com:nojhan/liquidprompt.git' 'liquidprompt'
 push = :
+
+[DEFAULT]
+update = git up
