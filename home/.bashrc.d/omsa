@@ -5,3 +5,7 @@ fi
 if [ -x '/opt/dell/srvadmin/oma/bin/omreport' ]; then
   export PATH=$PATH:/opt/dell/srvadmin/oma/bin
 fi
+
+if [ -x '/opt/dell/srvadmin/sbin/omreport' ]; then
+  export PATH=$PATH:/opt/dell/srvadmin/sbin
+fi
