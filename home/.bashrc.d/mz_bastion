@@ -1,0 +1,3 @@
+alias bast2='ssh bastion2'
+alias bast3='ssh bastion3'
+alias bast4='ssh bastion4'
