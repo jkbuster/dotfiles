@@ -1,9 +1,4 @@
-alias bast2='ssh bastion2'
-alias bast3='ssh bastion3'
-alias bast4='ssh bastion4'
-alias bast6='ssh bastion6'
-alias bast7='ssh bastion7'
-alias b='ssh bastion7'
+alias b='ssh las1-1'
 if [ -x '/usr/local/bin/ssh_as_root' ]; then
   alias s='/usr/local/bin/ssh_as_root'
 fi
