@@ -1,6 +1,6 @@
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
-if [ $(which brew) ]; then
+if [ -x /usr/local/bin/brew ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
