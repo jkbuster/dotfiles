@@ -1,4 +1,4 @@
 # Minecraft aliases
 if [ -x /usr/local/bin/kubectl ]; then
-  alias kstatus='kubectl cluster-info; kubectl get -o wide ns,no; echo ; kubectl get --all-namespaces -o wide deploy,rc,rs,po,svc,ep,ing'
+  alias kstatus='kubectl cluster-info; kubectl get -o wide ns,no,pv; echo ; kubectl get --all-namespaces -o wide all'
 fi
