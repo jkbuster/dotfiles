@@ -17,3 +17,7 @@ export HISTTIMEFORMAT='%F_%T '
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTFILESIZE=1000000
 export HISTSIZE=5000
+
+if [[ ${LOGNAME} == 'root' ]]; then
+  HISTFILE=$HOME/.bash_history.root
+fi
