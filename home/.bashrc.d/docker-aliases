@@ -1,0 +1,3 @@
+alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "${HOME}/.aws:/root/.aws" -v "$(pwd):/project" mesosphere/aws-cli'
+alias ansible='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -w "/project" --entrypoint="ansible" williamyeh/ansible:alpine3'
+alias ansible-playbook='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -w "/project" --entrypoint="ansible-playbook" williamyeh/ansible:alpine3'
