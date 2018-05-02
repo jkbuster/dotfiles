@@ -1,4 +1,0 @@
-alias b='ssh las1-1'
-if [ -x '/usr/local/bin/ssh_as_root' ]; then
-  alias s='/usr/local/bin/ssh_as_root'
-fi
