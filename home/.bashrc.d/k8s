@@ -2,3 +2,5 @@
 if [ -x /usr/local/bin/kubectl ]; then
   alias kstatus='kubectl cluster-info; kubectl get -o wide ns,no,pv; echo ; kubectl get --all-namespaces -o wide all'
 fi
+
+alias soc='oc --as=system:admin'
