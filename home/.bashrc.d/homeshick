@@ -15,7 +15,7 @@ if [[ -d "$HOME/.homesick/repos/homeshick" && -x "/usr/bin/git" ]]; then
   fi
 
   # Update dotfiles if necessary
-  if [[ $(ssh-add -l | wc -l) -ge 1 && $DOTFILESLAG -gt 604800 ]]; then
+  if [[ ${DOTFILESLAG} -gt 604800 && -n "${SSH_AUTH_SOCK}" ]]; then
     echo "Updating dotfiles..."
     mr update
     homeshick -q -b link
