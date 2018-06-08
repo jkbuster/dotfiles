@@ -1,6 +1,11 @@
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
-fi
-if [ -x /usr/local/bin/brew ]; then
+elif [ -x /usr/local/bin/brew ]; then
   . $(brew --prefix)/etc/bash_completion
+elif [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
+  . /usr/local/etc/profile.d/bash_completion.sh
+fi
+
+if [ -f /Applications//Docker.app/Contents/Resources/etc/docker.bash-completion ]; then
+  . /Applications//Docker.app/Contents/Resources/etc/docker.bash-completion
 fi

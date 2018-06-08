@@ -1,4 +1,4 @@
-# Work Nagios Aliases
+# Nagios Aliases
 if [ -x "/etc/init.d/nagios3" ]; then
   alias nupdate='sudo -u nagios /etc/nagios3/conf.git.d/update.sh'
   alias ngcheck='sudo /usr/sbin/nagios3 -v /etc/nagios3/nagios.git.cfg'
