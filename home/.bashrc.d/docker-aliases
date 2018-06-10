@@ -1,6 +1,7 @@
 if [ -x $(command -v docker) ]; then
-  command -v aws >/dev/null 2>&1 || alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "${HOME}/.aws:/root/.aws" -v "$(pwd):/project" quay.io/jkbuster/aws-cli:latest'
-  command -v ansible >/dev/null 2>&1 || alias ansible='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${SSH_AUTH_SOCK}:/tmp/ssh_auth_sock" -e "SSH_AUTH_SOCK=/tmp/ssh_auth_sock" -w "/project" --entrypoint="ansible" williamyeh/ansible:alpine3'
-  command -v ansible-playbook >/dev/null 2>&1 || alias ansible-playbook='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh" -w "/project" --entrypoint="ansible-playbook" williamyeh/ansible:alpine3'
+  command -v aws >/dev/null 2>&1 || alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "${HOME}/.aws:/root/.aws:ro" -v "$(pwd):/project" quay.io/jkbuster/aws-cli:latest'
+  command -v ansible >/dev/null 2>&1 || alias ansible='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible" williamyeh/ansible:alpine3'
+  command -v ansible-playbook >/dev/null 2>&1 || alias ansible-playbook='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible-playbook" williamyeh/ansible:alpine3'
   command -v kubectl >/dev/null 2>&1 || alias kubectl='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.kube:/root/.kube:ro" --entrypoint="kubectl" lachlanevenson/k8s-kubectl'
+  command -v heroku >/dev/null 2>&1 || alias heroku='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.netrc:/root/.netrc" --entrypoint="heroku" quay.io/jkbuster/heroku-cli:latest'
 fi
