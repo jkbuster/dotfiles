@@ -6,6 +6,6 @@ if [[ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" && -S "$SSH_AUTH_SOCK" ]]; 
   alias ssh-reload-agent='rm -rf ~/.ssh/ssh_auth_sock; ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock'
 fi
 
-if [[ -n "$SSH_AUTH_SOCK" && $(ssh-add -l 2>&1 > /dev/null; echo $?) -ne 0 ]]; then
+if [[ -n "$SSH_AUTH_SOCK" && $(ssh-add -l > /dev/null 2>&1; echo $?) -ne 0 ]]; then
   ssh-add 2> /dev/null
 fi
