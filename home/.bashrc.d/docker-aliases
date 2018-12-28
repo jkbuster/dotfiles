@@ -1,5 +1,5 @@
 if [ -x $(command -v docker) ]; then
-  command -v aws >/dev/null 2>&1 || alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "${HOME}/.aws:/root/.aws:ro" -v "$(pwd):/project" quay.io/jkbuster/aws-cli:latest'
+  command -v aws >/dev/null 2>&1 || alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "${HOME}/.aws:/root/.aws:ro" -v "$(pwd):/app" -w "/app" quay.io/jkbuster/aws-cli:latest'
   command -v ansible >/dev/null 2>&1 || alias ansible='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible" williamyeh/ansible:alpine3'
   command -v ansible-playbook >/dev/null 2>&1 || alias ansible-playbook='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible-playbook" williamyeh/ansible:alpine3'
   command -v kubectl >/dev/null 2>&1 || alias kubectl='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.kube:/root/.kube:ro" -w "/project" --entrypoint="kubectl" lachlanevenson/k8s-kubectl'
