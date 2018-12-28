@@ -3,5 +3,6 @@ if [ -x $(command -v docker) ]; then
   command -v ansible >/dev/null 2>&1 || alias ansible='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible" williamyeh/ansible:alpine3'
   command -v ansible-playbook >/dev/null 2>&1 || alias ansible-playbook='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.ssh:/root/.ssh:ro" -w "/project" --entrypoint="ansible-playbook" williamyeh/ansible:alpine3'
   command -v kubectl >/dev/null 2>&1 || alias kubectl='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.kube:/root/.kube:ro" -w "/project" --entrypoint="kubectl" lachlanevenson/k8s-kubectl'
-  command -v heroku >/dev/null 2>&1 || alias heroku='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.netrc:/root/.netrc:z" quay.io/jkbuster/heroku-cli'
+  command -v heroku >/dev/null 2>&1 || alias heroku='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.netrc:/root/.netrc:z" -e "HEROKU_COLOR=0" -e "HEROKU_ORGANIZATION=upstart" quay.io/jkbuster/heroku-cli'
+  command -v terraform >/dev/null 2>&1 || alias terraform='docker run --rm -t $(tty &>/dev/null && echo "-i") -v "$(pwd):/project" -v "${HOME}/.aws:/root/.aws:ro" -w "/project" hashicorp/terraform'
 fi
